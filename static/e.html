@@ -1,1 +1,103 @@
-
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>仿B站UI</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background-color: #ffffff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .logo {
+            font-size: 24px;
+            color: #fa7298;
+        }
+        .nav {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .nav li {
+            display: inline;
+            margin-left: 20px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: #333;
+            font-size: 16px;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .video-list {
+            width: 70%;
+        }
+        .video-item {
+            background-color: #ffffff;
+            margin-bottom: 20px;
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .video-title {
+            font-size: 18px;
+            color: #333;
+        }
+        .video-desc {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .sidebar {
+            width: 25%;
+            padding: 10px;
+        }
+        .sidebar-title {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .sidebar-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">BiliBili</div>
+        <nav class="nav">
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">番剧</a></li>
+                <li><a href="#">直播</a></li>
+                <li><a href="#">会员购</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="content">
+        <div class="video-list">
+            <div class="video-item">
+                <h3 class="video-title">视频标题1</h3>
+                <p class="video-desc">这里是视频描述1，可以简短介绍视频内容。</p>
+            </div>
+            <!-- 更多视频项 -->
+        </div>
+        <div class="sidebar">
+            <div class="sidebar-title">推荐UP主</div>
+            <div class="sidebar-item">UP主1</div>
+            <div class="sidebar-item">UP主2</div>
+            <!-- 更多推荐UP主 -->
+        </div>
+    </div>
+</body>
+</html>
