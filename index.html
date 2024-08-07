@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>风羽不是疯🐟 漫.</title>
+    <style>
+ body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Microsoft YaHei', Arial, sans-serif;
+}
+
+/* 基础元素的圆角和阴影 */
+.chat-container, .input-container, .message {
+    border-radius: 10px; /* 圆角效果 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微的阴影 */
+}
+
+/* 渐变背景色 */
+.chat-header {
+    background: linear-gradient(135deg, #1a1a1a, #333333); /* 渐变背景 */
+}
+
+/* 消息的渐变背景 */
+.message {
+    background: linear-gradient(135deg, #e1f3f5, #d1e9f0);
+}
+
+.message.mine {
+    background: linear-gradient(135deg, #b9e4ea, #a7d8e2);
+}
+
+/* 按钮的渐变和动画 */
+.input-container button, .join-qq-group-button {
+    background: linear-gradient(135deg, #00b33b, #009900);
+    transition: transform 0.2s ease-in-out; /* 按钮按下时的动画效果 */
+}
+
+.input-container button:hover, .join-qq-group-button:hover {
+    transform: scale(1.05); /* 鼠标悬停时放大 */
+}
+
+/* 输入框的样式 */
+.input-container input[type="text"] {
+    border: 1px solid #ccc; /* 更柔和的边框颜色 */
+    transition: border-color 0.3s; /* 输入框边框颜色变化的过渡效果 */
+}
+
+.input-container input[type="text"]:focus {
+    border-color: #00b33b; /* 输入框获得焦点时的边框颜色 */
+}
+
+/* 消息滚动动画 */
+.messages {
+    transition: opacity 0.5s ease-in-out; /* 滚动时的透明度变化 */
+}
+/* 定义动画名称和关键帧 */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 应用动画到消息元素 */
+.message {
+    animation: slideDown 0.5s ease forwards;
+}
+
+/* 确保按钮文本垂直居中 */
+.join-qq-group-button {
+    line-height: 1.5; /* 根据按钮高度调整行高 */
+}
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+
+.chat-header {
+    height: 50px;
+    line-height: 50px;
+    background-color: #1a1a1a;
+    color: white;
+    padding: 0 20px;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+
+.messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: white;
+}
+
+.message {
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #e1f3f5;
+    max-width: 70%;
+    word-wrap: break-word;
+    border-bottom: 1px solid #ccc;
+}
+
+.message.mine {
+    margin-left: auto;
+    background-color: #b9e4ea;
+    text-align: right;
+}
+
+.input-container {
+    padding: 10px;
+    background-color: #1a1a1a;
+    display: flex;
+}
+
+.input-container input[type="text"] {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+    color: #333;
+    flex-grow: 1;
+}
+
+.input-container button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00b33b;
+    color: white;
+    cursor: pointer;
+}
+
+/* 新增的按钮样式 */
+.join-qq-group-button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    display: block; /* 确保按钮宽度由内容决定 */
+    
+}
+
+.join-qq-group-button {
+    display: inline-block;
+    margin-top: 10px;      /* 与上一个元素的间距 */
+    padding: 10px 20px;    /* 内边距 */
+    font-size: 16px;       /* 字体大小 */
+    font-weight: 600;      /* 字体粗细 */
+    line-height: 1;        /* 行高 */
+    text-align: center;    /* 文字居中 */
+    text-decoration: none; /* 去除下划线 */
+    white-space: nowrap;   /* 防止换行 */
+    vertical-align: middle; /* 垂直居中 */
+    cursor: pointer;       /* 鼠标悬停时显示手形图标 */
+    border: 1px solid transparent; /* 边框 */
+    border-radius: 5px;    /* 边框圆角 */
+    background-color: #0084ff; /* 背景颜色 */
+    color: white;          /* 文字颜色 */
+    transition: background-color 0.3s; /* 背景颜色变化的过渡效果 */
+}
+
+.join-qq-group-button:hover {
+    background-color: #0057d9; /* 鼠标悬停时的背景颜色 */
+}
+
+.join-qq-group-button:active {
+    background-color: #0044cc; /* 按钮按下时的背景颜色 */
+}
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">风羽的提取系统 疯🐟</div>
+        <div class="messages">
+            <!-- 消息将在这里显示 -->
+        </div>
+        <div class="input-container">
+            <input type="text" id="messageInput" placeholder="输入你的消息...">
+            <button onclick="sendMessage()">发送</button>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            // 添加初始消息
+            var messages = document.querySelector('.messages');
+            var botMessage = document.createElement('div');
+            botMessage.classList.add('message');
+            var content = document.createTextNode('您好，我是在线机器人，请输入您的取件码');
+            botMessage.appendChild(content);
+            messages.appendChild(botMessage);
+            adjustScroll();
+        };
+
+        function sendMessage() {
+    var input = document.getElementById('messageInput');
+    var messages = document.querySelector('.messages');
+    var userInput = input.value.trim();
+
+    // 创建并添加用户消息
+    var userMessage = document.createElement('div');
+    userMessage.classList.add('message', 'mine');
+    var content = document.createTextNode(userInput);
+    userMessage.appendChild(content);
+    messages.appendChild(userMessage);
+    adjustScroll();
+
+    // 获取机器人的回复
+    var botResponse = getBotResponse(userInput);
+    if (botResponse) {
+        // 如果有预设回复，添加到聊天界面
+        var botMessage = document.createElement('div');
+        botMessage.classList.add('message');
+        botMessage.appendChild(document.createTextNode(botResponse));
+        messages.appendChild(botMessage);
+    } else {
+        // 如果没有预设回复，添加失败消息
+        var failureMessage = document.createElement('div');
+        failureMessage.classList.add('message');
+        failureMessage.innerHTML = '信息检测失败，如有疑问请加入QQ群：';
+        messages.appendChild(failureMessage);
+
+        // 创建并添加加入QQ群的按钮
+        var joinQQGroupButton = document.createElement('button');
+        joinQQGroupButton.className = 'join-qq-group-button'; // 应用CSS类
+        joinQQGroupButton.textContent = '加入QQ群'; // 设置按钮文本
+        joinQQGroupButton.onclick = function() {
+            window.open('h.html', '_blank'); // 替换为实际的QQ群号码
+        };
+        messages.appendChild(joinQQGroupButton);
+    }
+
+    input.value = ''; // 清空输入框
+}
+
+// 确保你已经有了adjustScroll函数
+function adjustScroll() {
+    var messages = document.querySelector('.messages');
+    messages.scrollTop = messages.scrollHeight;
+}
+
+        function getBotResponse(userInput) {
+            if (userInput === '你好') {
+                return '你好，有什么文件需要提取吗？输入提取码即可';
+            } else if (userInput === '风羽nv群号') {
+                return '风羽的nv群号是245850416(QQ)例外，破解nv卡密问群主索要哦';
+                } else if (userInput === '威尼斯114514') {
+                return '威尼斯破解版本下载  蓝奏云 https://wwi.lanzouo.com/b00rn9aolg 123云盘 https://www.123pan.com/s/dr77jv-JMgud.html 如有密码均为fengyu 谢谢支持 如有疑问，请联系风羽';
+            } else {
+                return null;
+            }
+        }
+
+        function adjustScroll() {
+            var messages = document.querySelector('.messages');
+            messages.scrollTop = messages.scrollHeight;
+        }
+      
+      
+      function addMessage(message) {
+    var messageElement = document.createElement('div');
+    messageElement.classList.add('message');
+    messageElement.textContent = message;
+    document.querySelector('.messages').appendChild(messageElement);
+}
+    </script>
+</body>
+</html>
